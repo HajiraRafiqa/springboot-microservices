@@ -4,12 +4,13 @@ import java.util.List;
 
 import org.springframework.http.HttpStatus;
 import lombok.AllArgsConstructor;
-import lombok.NoArgsConstructor;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import com.cg.entity.UserDto;
+import com.cg.dto.UserDto;
 import com.cg.service.UserService;
+
+import jakarta.validation.Valid;
 
 
 
@@ -23,7 +24,7 @@ public class UserController {
 
     // creating user
     @PostMapping
-    public ResponseEntity<UserDto> createUser(@RequestBody UserDto user){
+    public ResponseEntity<UserDto> createUser(@Valid @RequestBody UserDto user){
         UserDto savedUser = userService.createUser(user);
         return new ResponseEntity<>(savedUser, HttpStatus.CREATED);
     }
