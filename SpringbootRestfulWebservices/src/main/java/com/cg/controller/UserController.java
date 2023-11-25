@@ -23,6 +23,7 @@ public class UserController {
 	private UserService userService;
 
     // creating user
+	
     @PostMapping
     public ResponseEntity<UserDto> createUser(@Valid @RequestBody UserDto user){
         UserDto savedUser = userService.createUser(user);
@@ -30,6 +31,7 @@ public class UserController {
     }
 
     // get user by id 
+    //http://localhost:8080/api/users/1
     @GetMapping("{id}")
     public ResponseEntity<UserDto> getUserById(@PathVariable("id") Long userId){
         UserDto user = userService.getUserById(userId);
@@ -37,6 +39,7 @@ public class UserController {
     }
 
     // Get All Users 
+    // http://localhost:8080/api/users
     @GetMapping
     public ResponseEntity<List<UserDto>> getAllUsers(){
         List<UserDto> users = userService.getAllUsers();
@@ -44,6 +47,7 @@ public class UserController {
     }
 
     // Update UserDto 
+    //http://localhost:8080/api/users/1
     @PutMapping("{id}")
     public ResponseEntity<UserDto> updateUser(@PathVariable("id") Long userId,
                                            @RequestBody UserDto user){
@@ -53,6 +57,7 @@ public class UserController {
     }
 
     // Delete UserDto 
+    //http://localhost:8080/api/user/{id}
     @DeleteMapping("{id}")
     public ResponseEntity<String> deleteUser(@PathVariable("id") Long userId){
         userService.deleteUser(userId);
