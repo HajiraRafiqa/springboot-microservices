@@ -23,7 +23,7 @@ public class UserController {
 	private UserService userService;
 
     // creating user
-	
+	//http://localhost:8080/api/users
     @PostMapping
     public ResponseEntity<UserDto> createUser(@Valid @RequestBody UserDto user){
         UserDto savedUser = userService.createUser(user);

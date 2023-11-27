@@ -11,6 +11,7 @@ import com.cg.entity.User;
 import com.cg.exception.EmailAlreadyExistsException;
 import com.cg.exception.ResourceNotFoundException;
 import com.cg.mapper.AutoUserMapper;
+import com.cg.mapper.UserMapper;
 import com.cg.repository.UserRepository;
 import com.cg.service.UserService;
 	

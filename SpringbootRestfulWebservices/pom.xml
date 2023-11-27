@@ -123,7 +123,7 @@
 			<plugin>
     			<groupId>org.jacoco</groupId>
     			<artifactId>jacoco-maven-plugin</artifactId>
-    			<version>${jacoco.version}</version>
+    			<version>0.8.5</version>
     			<executions>
         			<execution>
             			<id>jacoco-initialize</id>
@@ -132,14 +132,27 @@
             			</goals>
         			</execution>
         			<execution>
-            			<id>jacoco-site</id>
-            			<phase>package</phase>
-            			<goals>
-                			<goal>report</goal>
-            			</goals>
-        			</execution>
+                        <id>report</id>
+                        <phase>test</phase>
+                        <goals>
+                            <goal>report</goal>
+                        </goals>
+                    </execution>
     			</executions>
 			</plugin>
+			
+			<plugin>
+        <groupId>org.sonarsource.sonar-packaging-maven-plugin</groupId>
+        <artifactId>sonar-packaging-maven-plugin</artifactId>
+        <version>1.18.0.372</version>
+        <extensions>true</extensions>
+        <configuration>
+          <!-- the entry-point class that extends org.sonar.api.SonarPlugin -->
+          <pluginClass>com.mycompany.sonar.reference.ExamplePlugin</pluginClass>
+           
+          <!-- advanced properties can be set here. See paragraph "Advanced Build Properties". -->
+        </configuration>
+      </plugin>
 
 		</plugins>
 	</build>
