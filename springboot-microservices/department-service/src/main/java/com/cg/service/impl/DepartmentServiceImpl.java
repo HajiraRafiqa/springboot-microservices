@@ -2,6 +2,8 @@ package com.cg.service.impl;
 
 
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 import com.cg.dto.DepartmentDto;
 import com.cg.entity.Department;
@@ -19,9 +21,11 @@ public class DepartmentServiceImpl implements DepartmentService {
 	
 
     private DepartmentRepository departmentRepository;
+    private static final Logger LOGGER = LoggerFactory.getLogger(DepartmentServiceImpl.class);
 
     @Override
     public DepartmentDto saveDepartment(DepartmentDto departmentDto) {
+    	LOGGER.info("saving department");
 
         // convert department dto to department jpa entity
         Department department = DepartmentMapper.mapToDepartment(departmentDto);
